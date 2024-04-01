@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print "जय श्री राम" 108 times smoothly</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS file -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-container">
+            <h1 id="jaiShriRam"></h1>
+        </div>
+    </div>
+
+    <script>
+        // Function to print "जय श्री राम" with a delay
+        // Function to adjust the margin-top of text-container based on the height of title
+        function adjustTextContainerMargin() {
+            var titleHeight = document.querySelector('.title').offsetHeight;
+            var textContainer = document.querySelector('.text-container');
+            textContainer.style.marginTop = (titleHeight + 20) + 'px'; // Adjust 20px as needed
+        }
+
+        // Call the adjustTextContainerMargin function initially and on window resize
+        window.onload = function () {
+            adjustTextContainerMargin();
+        }
+
+        window.onresize = function () {
+            adjustTextContainerMargin();
+        }
+
+        // Function to print "जय श्री राम" with a delay
+        function printJaiShriRamSmoothly(count) {
+            if (count > 0) {
+                document.getElementById('jaiShriRam').innerHTML += "जय श्री राम | ";
+                setTimeout(function () {
+                    printJaiShriRamSmoothly(count - 1); // Recursive call with count decremented
+                    adjustTextContainerMargin(); // Adjust text container margin after each print
+                }, 1000); // 1000 milliseconds delay between each print
+            }
+        }
+
+        // Start printing "जय श्री राम" smoothly
+        printJaiShriRamSmoothly(108);
+
+    </script>
+
+</body>
+
+</html>

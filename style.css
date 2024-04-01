@@ -1,0 +1,43 @@
+/* Default styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('hello.jpg'); /* Default background image for desktop */
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; /* Prevents blurred content from leaking */
+    font-family: Arial, sans-serif; /* Adding a default font family */
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center-aligning the content */
+}
+
+.title {
+    color: orange;
+    margin-bottom: 20px; /* Adding space below the title */
+}
+
+.text-container {
+    color: white; /* Adjust text color as needed */
+    margin-top: 20px; /* Adding space above the text container */
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    body {
+        background-image: url('hello2.jpg'); /* Background image for mobile */
+    }
+
+    .title,
+    .text-container {
+        margin: 10px; /* Add margin to all sides to prevent overlapping */
+    }
+}
