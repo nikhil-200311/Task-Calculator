@@ -42,16 +42,9 @@ This project is a simple web-based tax calculator designed to help users estimat
 ## Credits
 
 - This project utilizes Bootstrap Icons for the tooltip icons.
-- The tax calculation logic and interface design were developed by [Your Name or Organization].
-
----
-
-## License
-
-This project is licensed under the [License Name or Link]. See the LICENSE file for details.
 
 ---
 
 ## Support
 
-For any issues or questions regarding this project, please contact [Your Contact Information].
+For any issues or questions regarding this project, please contact nikhilkumaragarwalk@gmail.com.
