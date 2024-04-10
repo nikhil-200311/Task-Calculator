@@ -4,51 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Print "जय श्री राम" 108 times smoothly</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS file -->
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
 </head>
 
 <body>
-    <div class="container">
-        <div class="text-container">
-            <h1 id="jaiShriRam"></h1>
+    <div class="Container">
+        <form id="taxForm">
+            <h2>Tax Calculator</h2>
+            <div class="input-box">
+                <div class="annual-income">
+                    <label for="aincome">Enter gross annual income
+                        <span class="tooltip">
+                            <i class="bi bi-info-circle" id="incomeInfo"></i>
+                            <span class="tooltip-text">Gross annual income is your total salary in a year before any
+                                deductions</span>
+                        </span>
+                    </label>
+                    <input type="text" placeholder="Enter gross annual income" name="aincome" id="aincome">
+                    <span class="error-icon" id="aincomeError">!</span>
+                </div>
+
+                <div class="annual-income">
+                    <label for="eincome">Enter extra income 
+                        <span class="tooltip">
+                            <i class="bi bi-info-circle" id="extraIncomeInfo"></i>
+                            <span class="tooltip-text">Extra income refers to any additional earnings beyond your gross annual income, such as bonuses or side income.</span>
+                        </span>
+                    </label>
+                    <input type="text" placeholder="Enter extra income" name="eincome" id="eincome">
+                    <span class="error-icon" id="eincomeError">!</span>
+                </div>
+                
+                <div class="annual-income">
+                    <label for="age">Select age group</label>
+                    <select name="age" id="age">
+                        <option value="" selected>Select</option>
+                        <option value="<40">age < 40</option>
+                        <option value="40-60">40 ≥ age < 60</option>
+                        <option value=">=60">age ≥ 60</option>
+                    </select>
+                    <span class="error-icon" id="ageError">!</span>
+                </div>
+
+                <div class="annual-income">
+                    <label for="deductions">Enter total applicable deductions 
+                        <span class="tooltip">
+                            <i class="bi bi-info-circle" id="deductionsInfo"></i>
+                            <span class="tooltip-text">Total applicable deductions refer to any eligible expenses or deductions that can be subtracted from your gross income to reduce your taxable income.</span>
+                        </span>
+                    </label>
+                    <input type="text" placeholder="Enter total applicable deductions" name="deductions" id="deductions">
+                    <span class="error-icon" id="deductionsError">!</span>
+                </div>
+                
+
+                <div class="button-container">
+                    <button type="button" id="submitBtn">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button id="closeBtn" class="closeBtn">&times;</button>
+            <p id="taxResult"></p>
         </div>
     </div>
 
-    <script>
-        // Function to print "जय श्री राम" with a delay
-        // Function to adjust the margin-top of text-container based on the height of title
-        function adjustTextContainerMargin() {
-            var titleHeight = document.querySelector('.title').offsetHeight;
-            var textContainer = document.querySelector('.text-container');
-            textContainer.style.marginTop = (titleHeight + 20) + 'px'; // Adjust 20px as needed
-        }
-
-        // Call the adjustTextContainerMargin function initially and on window resize
-        window.onload = function () {
-            adjustTextContainerMargin();
-        }
-
-        window.onresize = function () {
-            adjustTextContainerMargin();
-        }
-
-        // Function to print "जय श्री राम" with a delay
-        function printJaiShriRamSmoothly(count) {
-            if (count > 0) {
-                document.getElementById('jaiShriRam').innerHTML += "जय श्री राम | ";
-                setTimeout(function () {
-                    printJaiShriRamSmoothly(count - 1); // Recursive call with count decremented
-                    adjustTextContainerMargin(); // Adjust text container margin after each print
-                }, 1000); // 1000 milliseconds delay between each print
-            }
-        }
-
-        // Start printing "जय श्री राम" smoothly
-        printJaiShriRamSmoothly(108);
-
-    </script>
-
+    <script src="script.js"></script>
 </body>
 
 </html>

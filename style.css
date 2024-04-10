@@ -1,43 +1,262 @@
-/* Default styles */
-body {
-    margin: 0;
+*{
     padding: 0;
-    background-image: url('hello.jpg'); /* Default background image for desktop */
-    background-size: cover;
-    background-position: center;
-    overflow: hidden; /* Prevents blurred content from leaking */
-    font-family: Arial, sans-serif; /* Adding a default font family */
+    margin: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
 }
 
-.container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
+body{
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center;
     justify-content: center;
-    text-align: center; /* Center-aligning the content */
+    align-items: center;
+    height: 100vh;
 }
 
-.title {
-    color: orange;
-    margin-bottom: 20px; /* Adding space below the title */
+.Container{
+
+    max-width: 650px;
+    padding: 28px;
+    margin: 0 28px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.2);
+    box-shadow: 0 15px 20px rgba(0,0,0,0.6);
 }
 
-.text-container {
-    color: white; /* Adjust text color as needed */
-    margin-top: 20px; /* Adding space above the text container */
+h2{
+    font-size: 23px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    padding-bottom: 8px;
+    border-bottom: 1px solid silver;
+
 }
 
-/* Media query for smaller screens */
-@media only screen and (max-width: 768px) {
-    body {
-        background-image: url('hello2.jpg'); /* Background image for mobile */
+.input-box{
+    /* display: flex; */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px ;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.annual-income{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 15px;
+}
+/* 
+.annual-income:nth-child(2n){
+    justify-content: end;
+} */
+
+.input-box input{
+    height: 40px;
+    width: 100%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.annual-income select {
+    height: 40px;
+    width: 100%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input-box input:is(:focus,:valid){
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.button-container{
+    margin: 15px 0;
+}
+
+.button-container button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #aa076b, #61045f);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button-container button:hover{
+    background-image: linear-gradient(to right, #61045f, #aa076b);
+}
+
+.error-icon {
+    display: none;
+    top: 150px;
+    transform: translateX(-50%);
+}
+.error-icon:hover::after {
+    content: attr(title);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 3px;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+.input-box input.error:hover + .error-icon {
+    display: inline;
+}
+
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.input-container {
+    position: relative;
+}
+
+.input-container input {
+    padding-right: 30px;
+}
+
+#numberInfo {
+    position: absolute;
+    top: 50%;
+    right: 5px; 
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#numberInfo:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 50%; 
+    height: auto; 
+    border-radius: 10px;
+    overflow: auto; 
+     background-color: rgb(255, 255, 255); 
+   
+}
+
+.modal-content {
+    margin: 15% auto; 
+    padding: 20px;
+    /* border: 1px solid #888; */
+    width: 80%; 
+    border-radius: 5px;
+}
+.modal-content h6 {
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.modal-content h2 {
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.modal-content h4 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.closeBtn {
+    background-color: red;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.closeBtn:hover {
+    color: red;
+}
+
+
+
+@media(max-width:600px) {
+    .Container {
+        min-width: 280px;
     }
 
-    .title,
-    .text-container {
-        margin: 10px; /* Add margin to all sides to prevent overlapping */
+    .input-box {
+        max-height: 380px;
+        overflow: auto;
+    }
+
+    .annual-income {
+        margin-bottom: 12px;
+        width: 100%;
+    }
+
+    .input-box::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    .error-icon {
+        top: unset;
+        bottom: 25px; 
+    }
+
+    .error-icon:hover::after {
+        bottom: unset;
+        top: 100%; 
     }
 }
